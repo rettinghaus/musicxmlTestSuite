@@ -1,0 +1,17 @@
+name: Lint
+
+on: [push]
+
+jobs:
+  xml-linters:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Download schema
+      run: wget https://raw.githubusercontent.com/w3c/musicxml/gh-pages/schema/musicxml.xsd
+    - name: Validate MusicXML files using XML schema musicxml.xsd
+      uses: ChristophWurst/xmllint-action@v1
+      with:
+        xml-file: ./xmlFiles/*.xml
+        xml-schema-file: ./musicxml.xsd
