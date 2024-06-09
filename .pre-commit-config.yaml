@@ -1,0 +1,9 @@
+repos:
+- repo: https://github.com/comkieffer/pre-commit-xmllint.git
+  rev: 1.0.0
+  hooks:
+    - id: xmllint
+      args: [
+        --schema,
+        /Users/rettinghaus/Downloads/musicxml-4/schema/musicxml.xsd
+      ]
